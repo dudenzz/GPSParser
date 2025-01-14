@@ -37,3 +37,36 @@ W języku JavaScript używany jest obiekt o następującej strukturze (przykład
 Druga z metod aplikuje do każdej z linii metodę parsującą - linie poprawne załączane są do wyniku działania tej funkcji. Funkcja zwraca listę opisanych wyżej elementów.
 
 
+ ## Python
+
+ ### wykorzystanie 'minimalne'
+
+ W katalogu src/python_nmea znajduje się plik nmea.py. Wewnątrz tego pliku znajdują się dwie metody parsujące oraz jedna generująca mapy z Google Static Maps. Wystarczy skopiować te metody i można ich używać w dowolnym miejscu. UWAGA! metoda generująca mapy wymaga pakietu requests (pip install requests).
+
+
+ ### wykorzystanie jako pakiet
+
+ 1. W pierwszej kolejności powinno zostać utworzone środowisko wirtualne. Pakiet jest mały, ale na pewno nie musi być wykorzystywany we wszystkich projektach. Ten punkt jest opcjonalny, ale proponuję korzystać ze środowiska wirtualnego.
+
+ 2. Jeżeli ma być wykorzystywana metoda generowania map statycznych z Google w pliku src/python_nmea/nmea.py w linii 63 należy zmienić wartość klucza API z XXX.... na poprawny klucz do API google z dostępem do Google Static Maps API, jeżeli ta metoda nie będzie wkorzystywana, można ten krok pominąć.
+
+ 3. Należy przejść w terminalu do katalogu głównego repozytorium
+
+ 4. Należy zainstalować pakiet
+
+     pip install -e .
+
+ 5. Od tego moment w środowisku pakiet parsera dostępnym jest pod nazwą python_nmea. Przykład wykorzystania:
+
+    from python_nmea import nmea
+
+    nmea.generateStaticMap('test_files/ryszard.nmea','test_images/ryszard.png')
+    nmea.generateStaticMap('test_files/synthetic.nmea','test_images/synthetic.png')
+    
+    with open('test_files/synthetic.nmea') as file:
+        for line in nmea.parseLines(file.readlines()):
+            print(line)
+
+    with open('test_files/ryszard.nmea') as file:
+        for line in file:
+            print(nmea.parse(line))

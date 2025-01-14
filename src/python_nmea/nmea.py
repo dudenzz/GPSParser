@@ -59,9 +59,8 @@ def parseLines(lines):
             output.append(parsed)
     return output
 
-#The code below generates Google Static map for the provided let of lines. If you want to use it get the Google API key; keep in mind that static maps is a paid service (cost of a single image is less than 1 grosz, but still you need to connect your card and stuff).
-
-api_key = 'XXXXXXXXXXXXXXXX'
+#The code below generates Google Static map for the provided set of lines. If you want to use it get the Google API key; keep in mind that static maps is a paid service (cost of a single image is less than 1 grosz, but still you need to connect your card and stuff).
+api_key = 'XXXXXXXXXXXXXXXXX'
 
 def calculateCenter(values):
     total = 0
@@ -97,5 +96,3 @@ def generateStaticMap(filename, image_filename):
             ofile.write(response.content)
 
 
-
-generateStaticMap('output.nmea','generated.png')
