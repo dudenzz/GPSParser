@@ -14,7 +14,7 @@ Interfejs parsera realizuje dwie metody
     parse(line) : <int, int, int, double, double, double>
     parseLines(lines) : List<int, int, int, double, double, double>
 
-Pierwsza z metod przyjmuje jako argument jedną linię z urządzenia GPS. Wyjście tej metody to <kod_ramki, godzina, minuta, sekunda, długość geograficzna, szerokość geograficzna>. W przypadku kiedy szerokość geograficzna jest dodatnia oznacza ona szerokość północną, w przeciwnym wypadku południową. W przypadku kiedy długość geograficzna jest dodatnia oznacza ona długość wschodnią, w przeciwnm wypadku zachodnią. Jest to standardowa konwencja stosowana np. w Mapach Google. W przypadku, kiedy podana ramka nie jest ramką GGA, zwracana wartość kodu ramki wynosi -1, a w przypadku, gdy suma kontrolna jest niepoprawna, zwracana wartość kodu ramki to -2. Jeżeli mamy do czynienia z prawidłową ramką GGA, kod ramki wynosi 0. 
+Pierwsza z metod przyjmuje jako argument jedną linię z urządzenia GPS. Wyjście tej metody to <kod_ramki, godzina, minuta, sekunda, długość geograficzna, szerokość geograficzna>. W przypadku kiedy szerokość geograficzna jest dodatnia oznacza ona szerokość północną, w przeciwnym wypadku południową. W przypadku kiedy długość geograficzna jest dodatnia oznacza ona długość wschodnią, w przeciwnm wypadku zachodnią. Jest to standardowa konwencja stosowana np. w Mapach Google. W przypadku, kiedy podana ramka nie jest ramką GGA, zwracana wartość kodu ramki wynosi -1, a w przypadku, gdy suma kontrolna jest niepoprawna, zwracana wartość kodu ramki to -2. W przypadku, gdy ramka jest niepełna, zwracany kod to -3. Jeżeli mamy do czynienia z prawidłową ramką GGA, kod ramki wynosi 0. 
 
 ![image](https://github.com/user-attachments/assets/5a14a7e4-39dc-4b7b-a2ae-4ae3c2c230ec)
 
