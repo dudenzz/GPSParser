@@ -1,3 +1,7 @@
 src/python_nmea/__pycache__/__init__.cpython-311.pyc
 src/python_nmea/__pycache__/config.cpython-311.pyc
 src/python_nmea/__pycache__/nmea.cpython-311.pyc
+bin/nmea.exe
+.vscode/settings.json
+.vscode/tasks.json
+debug

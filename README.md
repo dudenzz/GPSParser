@@ -54,8 +54,9 @@ Druga z metod aplikuje do każdej z linii metodę parsującą - linie poprawne z
 
  4. Należy zainstalować pakiet
 
+```
      pip install -e .
-
+```
  5. Od tego moment w środowisku pakiet parsera dostępnym jest pod nazwą python_nmea. Przykład wykorzystania:
 
 ```

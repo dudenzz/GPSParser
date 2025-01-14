@@ -13,6 +13,7 @@ def parse(line):
     checksum = 0
     for ch in line[1:-3]:
         checksum = checksum ^ ord(ch)
+    
     nibble1 = int(checksum / 16)
     if nibble1 == 10: nibble1 = 'A'
     if nibble1 == 11: nibble1 = 'B'
