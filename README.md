@@ -58,6 +58,7 @@ Druga z metod aplikuje do każdej z linii metodę parsującą - linie poprawne z
 
  5. Od tego moment w środowisku pakiet parsera dostępnym jest pod nazwą python_nmea. Przykład wykorzystania:
 
+```
     from python_nmea import nmea
     nmea.generateStaticMap('test_files/ryszard.nmea','test_images/ryszard.png')
     nmea.generateStaticMap('test_files/synthetic.nmea','test_images/synthetic.png')
@@ -67,3 +68,4 @@ Druga z metod aplikuje do każdej z linii metodę parsującą - linie poprawne z
     with open('test_files/ryszard.nmea') as file:
     for line in file:
     print(nmea.parse(line))
+```
