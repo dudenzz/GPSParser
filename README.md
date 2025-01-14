@@ -24,14 +24,15 @@ W implementacjach w językach C++, C# i Java, wyniki przechowywane są w sdedyko
 W języku python dane zwracane są w postaci krotki (ponumerowanego zbioru).
 
 W języku JavaScript używany jest obiekt o następującej strukturze (przykładowy JSON)
-{
-    code : 0,
-    hour : 17,
-    minute : 40,
-    second : 40.23 ,
-    lon : 46,2756 ,
-    lat : 42,3311
-}
+    
+    {
+      code : 0,
+      hour : 17,
+      minute : 40,
+      second : 40.23 ,
+      lon : 46,2756 ,
+      lat : 42,3311
+    }
 
 Druga z metod aplikuje do każdej z linii metodę parsującą - linie poprawne załączane są do wyniku działania tej funkcji. Funkcja zwraca listę opisanych wyżej elementów.
 
