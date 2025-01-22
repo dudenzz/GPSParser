@@ -4,10 +4,12 @@ def parse(line):
     tokens = line.split(',')
     if tokens[0] != "$GPGGA":
         return [-1,0,0,0,0,0]
-    if(len(tokens)) != 15:
+    if (len(tokens)) != 15 and (len(tokens)) != 9:
         return [-3,0,0,0,0,0]
-    
-    [messageId, UTC, Lat, SN, Lon, WE, GPS_quality, SVs, HDOP, height, height_unit, geoid_sep, geoid_sep_meters, age, stationID_ctrl] = tokens
+    if((len(tokens))) == 15:
+        [messageId, UTC, Lat, SN, Lon, WE, GPS_quality, SVs, HDOP, height, height_unit, geoid_sep, geoid_sep_meters, age, stationID_ctrl] = tokens
+    if((len(tokens))) == 9:
+        [messageId, UTC, Lat, SN, Lon, WE, GPS_quality, SVs, stationID_ctrl] = tokens
     [stationID, ctrl] = stationID_ctrl.split('*')
    
     checksum = 0
@@ -29,7 +31,9 @@ def parse(line):
     if nibble2 == 14: nibble2 = 'E'
     if nibble2 == 15: nibble2 = 'F'
     checksum = str(nibble1) + str(nibble2)
-    if(checksum != ctrl): return [-2,0,0,0,0,0,0] 
+    if(checksum != ctrl): 
+        print(checksum, ctrl)
+        return [-2,0,0,0,0,0,0] 
 
 
     hour = float(UTC[0:2])
@@ -50,7 +54,7 @@ def parse(line):
     
     
 
-    return [0,hour, minute, sec, lat, lon]
+    return [0,hour, minute, sec, lat, lon, height]
 
 def parseLines(lines):
     output = []
@@ -59,6 +63,10 @@ def parseLines(lines):
         if parsed[0] == 0:
             output.append(parsed)
     return output
+
+def parseFile(filename):
+    lines = open(filename).readlines()
+    return parseLines(lines)
 
 #The code below generates Google Static map for the provided set of lines. If you want to use it get the Google API key; keep in mind that static maps is a paid service (cost of a single image is less than 1 grosz, but still you need to connect your card and stuff).
 api_key = 'XXXXXXXXXXXXXXXXX'
@@ -76,8 +84,8 @@ def generateStaticMap(filename, image_filename):
         lons = []
         markers = []
         for parsedLine in parseLines(lines):
-            lats.append(parsedLine[-2]) 
-            lons.append(parsedLine[-1]) 
+            lats.append(parsedLine[-3]) 
+            lons.append(parsedLine[-2]) 
         centerLat = calculateCenter(lats)
         centerLon = calculateCenter(lons)
         center = f'{centerLat},{centerLon}'        
@@ -95,5 +103,11 @@ def generateStaticMap(filename, image_filename):
 
         with open(image_filename,'wb+') as ofile:    
             ofile.write(response.content)
+          
+def main():
+    for line in parseFile('test_files\\synthetic.nmea'):
+        print(line)
+if __name__ == '__main__':
+    main()
 
 
