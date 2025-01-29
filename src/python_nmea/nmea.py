@@ -53,6 +53,8 @@ def parse(line):
         lon *= -1
     
     
+    
+    
 
     return [0,hour, minute, sec, lat, lon, height]
 
