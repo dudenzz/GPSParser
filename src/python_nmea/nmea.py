@@ -68,6 +68,15 @@ def parseFile(filename):
     lines = open(filename).readlines()
     return parseLines(lines)
 
+def parseBytes(filename):
+    chars = eval(open(filename).read())
+    string = ''
+    for ch in chars:
+        string += chr(ch)
+    print(parseLines(string.split('\n')))
+    return 0
+        
+
 #The code below generates Google Static map for the provided set of lines. If you want to use it get the Google API key; keep in mind that static maps is a paid service (cost of a single image is less than 1 grosz, but still you need to connect your card and stuff).
 api_key = 'XXXXXXXXXXXXXXXXX'
 
@@ -105,8 +114,7 @@ def generateStaticMap(filename, image_filename):
             ofile.write(response.content)
           
 def main():
-    for line in parseFile('test_files\\synthetic.nmea'):
-        print(line)
+    parseBytes('test_files/bytes.nmea')
 if __name__ == '__main__':
     main()
 
