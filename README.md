@@ -41,7 +41,7 @@ Druga z metod aplikuje do każdej z linii metodę parsującą - linie poprawne z
 
  ### wykorzystanie 'minimalne'
 
- W katalogu src/python_nmea znajduje się plik nmea.py. Wewnątrz tego pliku znajdują się dwie metody parsujące oraz jedna generująca mapy z Google Static Maps. Wystarczy skopiować te metody i można ich używać w dowolnym miejscu. UWAGA! metoda generująca mapy wymaga pakietu requests (pip install requests).
+ W katalogu src/python_nmea znajduje się plik nmea.py. Wewnątrz tego pliku znajdują się metody parsujące oraz metoda generująca mapy z Google Static Maps. Wystarczy skopiować te metody i można ich używać w dowolnym miejscu. UWAGA! metoda generująca mapy wymaga pakietu requests (pip install requests).
 
 
  ### wykorzystanie jako pakiet
@@ -73,3 +73,17 @@ Druga z metod aplikuje do każdej z linii metodę parsującą - linie poprawne z
      for line in file:
       print(nmea.parse(line))
 ```
+
+ ## Ruby
+
+ ### wykorzystanie minimalne
+
+ W katalogu src/ruby_nmea znajduje się plik nmea.py Korzystając z metody require_relative wystarczy pobrać zawartość tego pliku do aktualnego programu. Metoda parsująca tablicę bajtów nazywa się parseBytes; zwraca ona listę tablic z opisem położenia.
+
+ ```
+ [kod błędu, godzina, minuta, sekunda, szerokość geograficzna, długość geograficzna, wysokość n.p.m. wyrażona w metrach ]
+ ```
+
+ kod błędu 0 oznacza, że wyeksportowana ramka jest poprawna. Metoda nie wygeneruje żadnych innych kodów błędu.
+
+ Długość i szerokość geograficzna są wyrażone w formacie opisanym powyżej (kompatybilnym z google maps).
