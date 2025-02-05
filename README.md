@@ -86,4 +86,10 @@ Druga z metod aplikuje do każdej z linii metodę parsującą - linie poprawne z
 
  kod błędu 0 oznacza, że wyeksportowana ramka jest poprawna. Metoda nie wygeneruje żadnych innych kodów błędu.
 
- Długość i szerokość geograficzna są wyrażone w formacie opisanym powyżej (kompatybilnym z google maps).
+ Długość i szerokość geograficzna są wyrażone w formacie opisanym powyżej (kompatybilnym z google maps). Przykład wykorzystania:
+
+ ```
+ require_relative '../src/ruby_nmea/nmea'
+
+ parse_bytes('test_files/bytes.nmea').each { |position| puts position.inspect }
+ ```
