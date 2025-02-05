@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\kubad\\Documents\\my_projects\\nmea\\GPSParser\\visual_studio_projects\\CS_nmea_project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{46F7EADB-0A48-43B9-9DA0-F8AA1744A96C}|CS_nmea_project\\CS_nmea_project.csproj|c:\\users\\kubad\\documents\\my_projects\\nmea\\gpsparser\\visual_studio_projects\\cs_nmea_project\\cs_nmea_project\\nmea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46F7EADB-0A48-43B9-9DA0-F8AA1744A96C}|CS_nmea_project\\CS_nmea_project.csproj|solutionrelative:cs_nmea_project\\nmea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46F7EADB-0A48-43B9-9DA0-F8AA1744A96C}|CS_nmea_project\\CS_nmea_project.csproj|c:\\users\\kubad\\documents\\my_projects\\nmea\\gpsparser\\visual_studio_projects\\cs_nmea_project\\cs_nmea_project\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46F7EADB-0A48-43B9-9DA0-F8AA1744A96C}|CS_nmea_project\\CS_nmea_project.csproj|solutionrelative:cs_nmea_project\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46F7EADB-0A48-43B9-9DA0-F8AA1744A96C}|CS_nmea_project\\CS_nmea_project.csproj|c:\\users\\kubad\\documents\\my_projects\\nmea\\gpsparser\\visual_studio_projects\\cs_nmea_project\\cs_nmea_project\\parser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46F7EADB-0A48-43B9-9DA0-F8AA1744A96C}|CS_nmea_project\\CS_nmea_project.csproj|solutionrelative:cs_nmea_project\\parser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "NMEA.cs",
-              "DocumentMoniker": "C:\\Users\\kubad\\Documents\\my_projects\\nmea\\GPSParser\\visual_studio_projects\\CS_nmea_project\\CS_nmea_project\\NMEA.cs",
-              "RelativeDocumentMoniker": "CS_nmea_project\\NMEA.cs",
-              "ToolTip": "C:\\Users\\kubad\\Documents\\my_projects\\nmea\\GPSParser\\visual_studio_projects\\CS_nmea_project\\CS_nmea_project\\NMEA.cs",
-              "RelativeToolTip": "CS_nmea_project\\NMEA.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAMAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Parser.cs",
+              "DocumentMoniker": "C:\\Users\\kubad\\Documents\\my_projects\\nmea\\GPSParser\\visual_studio_projects\\CS_nmea_project\\CS_nmea_project\\Parser.cs",
+              "RelativeDocumentMoniker": "CS_nmea_project\\Parser.cs",
+              "ToolTip": "C:\\Users\\kubad\\Documents\\my_projects\\nmea\\GPSParser\\visual_studio_projects\\CS_nmea_project\\CS_nmea_project\\Parser.cs",
+              "RelativeToolTip": "CS_nmea_project\\Parser.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwC4AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T09:12:30.131Z",
+              "WhenOpened": "2025-01-22T09:18:22.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Position.cs",
+              "DocumentMoniker": "C:\\Users\\kubad\\Documents\\my_projects\\nmea\\GPSParser\\visual_studio_projects\\CS_nmea_project\\CS_nmea_project\\Position.cs",
+              "RelativeDocumentMoniker": "CS_nmea_project\\Position.cs",
+              "ToolTip": "C:\\Users\\kubad\\Documents\\my_projects\\nmea\\GPSParser\\visual_studio_projects\\CS_nmea_project\\CS_nmea_project\\Position.cs",
+              "RelativeToolTip": "CS_nmea_project\\Position.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAADwvwkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T09:13:57.532Z",
               "EditorCaption": ""
             },
             {
