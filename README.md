@@ -78,7 +78,7 @@ Druga z metod aplikuje do każdej z linii metodę parsującą - linie poprawne z
 
  ### wykorzystanie minimalne
 
- W katalogu src/ruby_nmea znajduje się plik nmea.py Korzystając z metody require_relative wystarczy pobrać zawartość tego pliku do aktualnego programu. Metoda parsująca tablicę bajtów nazywa się parseBytes; zwraca ona listę tablic z opisem położenia.
+ W katalogu src/ruby_nmea znajduje się plik nmea.py Korzystając z metody require_relative wystarczy pobrać zawartość tego pliku do aktualnego programu. Metoda parsująca tablicę bajtów nazywa się parse_bytes_string; przyjmuje ona jako argument tablicę stringów w której zapisane są kolejne wartości bajtów (jako string). Aby wykorzystać tą metodę wystarczny podzielić string po znaku ',' i przekazać utworzoną listę jako argument. Metoda zwraca listę tablic z opisem położenia. 
 
  ```
  [kod błędu, godzina, minuta, sekunda, szerokość geograficzna, długość geograficzna, wysokość n.p.m. wyrażona w metrach ]
@@ -86,10 +86,14 @@ Druga z metod aplikuje do każdej z linii metodę parsującą - linie poprawne z
 
  kod błędu 0 oznacza, że wyeksportowana ramka jest poprawna. Metoda nie wygeneruje żadnych innych kodów błędu.
 
- Długość i szerokość geograficzna są wyrażone w formacie opisanym powyżej (kompatybilnym z google maps). Przykład wykorzystania:
+ Długość i szerokość geograficzna są wyrażone w formacie opisanym powyżej (kompatybilnym z google maps). Dodatkowo istnieje metoda parse_bytes_file, która przyjmuje jako argument nazwę pliku z danymi. Przykład wykorzystania:
 
  ```
- require_relative '../src/ruby_nmea/nmea'
+require_relative '../src/ruby_nmea/nmea'
 
- parse_bytes('test_files/bytes.nmea').each { |position| puts position.inspect }
+parse_bytes_file('test_files/bytes.nmea').each { |position| puts position.inspect }
+
+data = '48, 48, 44, 65, 44, 53, 50, 48, 49, 46, 54, 49, 56, 49, 51, 44, 78, 44, 48, 50, 48, 52, 52, 46, 55, 57, 49, 52, 56, 44, 69, 44, 49, 46, 53, 51, 57, 44, 44, 49, 56, 48, 49, 50, 53, 44, 44, 44, 65, 42, 55, 57, 13, 10, 36, 71, 80, 86, 84, 71, 44, 44, 84, 44, 44, 77, 44, 49, 46, 53, 51, 57, 44, 78, 44, 50, 46, 56, 53, 49, 44, 75, 44, 65, 42, 50, 51, 13, 10, 36, 71, 80, 71, 71, 65, 44, 50, 49, 52, 50, 48, 55, 46, 48, 48, 44, 53, 50, 48, 49, 46, 54, 49, 56, 49, 51, 44, 78, 44, 48, 50, 48, 52, 52, 46, 55, 57, 49, 52, 56, 44, 69, 44, 49, 44, 48, 52, 44, 52, 46, 48, 52, 44, 49, 52, 49, 46, 56, 44, 77, 44, 51, 52, 46, 57, 44, 77, 44, 44, 42, 53, 50, 13, 10, 36, 71, 80, 71, 83, 65, 44, 65, 44, 51, 44, 48, 50, 44, 51, 50, 44, 49, 52, 44, 49, 48, 44, 44, 44, 44, 44, 44, 44, 44, 44, 53, 46, 54, 55, 44, 52, 46, 48, 52, 44, 51, 46, 57, 55, 42, 48, 67, 13, 10, 36, 71, 80, 71, 83, 86, 44, 51, 44, 49, 44, 49, 49, 44, 48, 49, 44, 53, 48, 44, 50, 56, 56, 44, 49, 50, 44, 48, 50, 44, 53, 54, 44, 50, 57, 51, 44, 50, 49, 44, 48, 51, 44, 76, 76, 44, 53, 50, 48, 49, 46, 54, 49, 50, 48, 53, 44, 78, 44, 48, 50, 48, 52, 52, 46, 55, 57, 49, 57, 56, 44, 69, 44, 50, 49, 52, 50, 53, 49, 46, 48, 48, 44, 65, 44, 65, 42, 54, 50, 13, 10, 36, 71, 80, 82, 77, 67, 44, 50, 49, 52, 50, 53, 50, 46, 48, 48, 44, 65, 44, 53, 50, 48, 49, 46, 54, 49, 49, 56, 56, 44, 78, 44, 48, 50, 48, 52, 52, 46, 55, 57, 50, 48, 49, 44, 69, 44, 48, 46, 50, 51, 49, 44, 44, 49, 56, 48, 49, 50, 53, 44, 44, 44, 65, 42, 55, 50, 13, 10, 36, 71, 80, 86, 84, 71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0'.split(",")
+
+parse_bytes_string(data).each { |position| puts position.inspect }
  ```
